@@ -1,7 +1,7 @@
 var sqlite3 = require('sqlite3');
 const { gql } = require('apollo-server');
 
-let db= new sqlite3.Database('./dl.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+let db= new sqlite3.Database('./mcu.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err && err.code == "SQLITE_CANTOPEN") {
         createDatabase();
         return;
@@ -13,7 +13,7 @@ let db= new sqlite3.Database('./dl.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CR
 });
 
 function createDatabase() {
-    var newdb = new sqlite3.Database('dl.db', (err) => {
+    var newdb = new sqlite3.Database('mcu.db', (err) => {
         if (err) {
             console.log("Getting error " + err);
             exit(1);
