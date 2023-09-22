@@ -88,7 +88,7 @@ function runQueries(db) {
             console.log(err);
         });
     }); */
-    
+
 
 
 }
@@ -181,6 +181,7 @@ const resolvers = {
 
             function changeHero(){
                 return new Promise((resolve,reject)=>{
+                    //added aerguments here
                     db.prepare("UPDATE hero SET views= ? WHERE hero_id= ? ").run([views,id],(err,rows)=>{
                         if(err){
                             return console.error(err.message);
