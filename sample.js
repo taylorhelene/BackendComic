@@ -81,13 +81,14 @@ function runQueries(db) {
         });
     });
 
-    db.serialize(()=>{
+   /* db.serialize(()=>{
         const statemnt=db.prepare("select * from hero_power")
         statemnt.all((err,tables)=>{
             console.log(tables);
             console.log(err);
         });
-    });
+    }); */
+    
 
 
 }
