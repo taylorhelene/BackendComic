@@ -1,7 +1,7 @@
 var sqlite3 = require('sqlite3');
 const { gql } = require('apollo-server');
 
-let db= new sqlite3.Database('./mcu.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+let db= new sqlite3.Database('./dl.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err && err.code == "SQLITE_CANTOPEN") {
         createDatabase();
         return;
@@ -13,7 +13,7 @@ let db= new sqlite3.Database('./mcu.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_C
 });
 
 function createDatabase() {
-    var newdb = new sqlite3.Database('mcu.db', (err) => {
+    var newdb = new sqlite3.Database('dl.db', (err) => {
         if (err) {
             console.log("Getting error " + err);
             exit(1);
@@ -81,14 +81,13 @@ function runQueries(db) {
         });
     });
 
-   /* db.serialize(()=>{
+    db.serialize(()=>{
         const statemnt=db.prepare("select * from hero_power")
         statemnt.all((err,tables)=>{
             console.log(tables);
             console.log(err);
         });
-    }); */
-
+    });
 
 
 }
@@ -130,7 +129,7 @@ const resolvers = {
            
             function getRecords(){
                 return new Promise((resolve,reject)=>{
-                db.prepare("SELECT  h.hero_id id ,hero_name name,is_xman xman,was_snapped snapped, hero_power power, image image ,views views FROM hero  h join hero_power hp on h.hero_id = hp.hero_id ").all((err,rows)=>{
+                db.prepare("SELECT distinct h.hero_id id ,hero_name name,is_xman xman,was_snapped snapped, hero_power power, image image ,views views FROM hero  h join hero_power hp on h.hero_id = hp.hero_id ").all((err,rows)=>{
                   if(err){
                       return console.error(err.message);
                   }
@@ -181,7 +180,6 @@ const resolvers = {
 
             function changeHero(){
                 return new Promise((resolve,reject)=>{
-                    //added arguments here
                     db.prepare("UPDATE hero SET views= ? WHERE hero_id= ? ").run([views,id],(err,rows)=>{
                         if(err){
                             return console.error(err.message);

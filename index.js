@@ -1,5 +1,6 @@
 const { ApolloServer } = require('apollo-server');
-const { typeDefs, resolvers  } = require('./sample.js');
+const { typeDefs } = require('./schemaDefinition.js');
+const { resolvers } = require('./resolvers.js')
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
