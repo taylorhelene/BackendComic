@@ -52,8 +52,33 @@ const resolvers = {
 
            
            
+        },
+        superheroeslist : ()=>{
+
+            var myans=[];
+            var records=[];
+           
+            function getRecords(){
+                return new Promise((resolve,reject)=>{
+                db.prepare("SELECT distinct  superhero , publisher , alter_ego , first_appearance , character , url FROM characters ").all((err,rows)=>{
+                  if(err){
+                      return console.error(err.message);
+                  }
+                  rows.forEach((row)=>{
+                      myans.push(row);
+                  });
+                console.log(myans)
+                 resolve(myans);
+              })
+                
+                })
+              }
+
+             
+              return records= getRecords();
         }
     },
+
     Mutation : {
 
         hero:(_,{views,id})=>{

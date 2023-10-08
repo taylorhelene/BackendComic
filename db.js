@@ -75,7 +75,8 @@ function fifthQuery(newdb){
         publisher text not null,
         alter_ego text not null,
         first_appearance text not null,
-        character text not null);
+        character text not null,
+        url text not null);
     `,()=>{
         sixthQuery(newdb);
     })
@@ -83,27 +84,27 @@ function fifthQuery(newdb){
 
 function sixthQuery(newdb){
     newdb.exec(
-     `insert into characters (superhero, publisher, alter_ego, first_appearance, character)
-        values ('Batman', 'DC Comics' , 'Bruce Wayne', 'Detective Comics #27', 'Bruce Wayne'),
-               ('Superman', 'DC Comics', 'Kal-El', 'Action Comics #1', 'Kal-El'),
-               ('Flash', 'DC Comics', 'Jay Garrick', 'Flash Comics #1','Jay Garrick, Barry Allen, Wally West, Bart Allen'),
-               ('Green Lantern', 'DC Comics', 'Alan Scott', 'All-American Comics #16', 'Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz'),
-               ('Green Arrow', 'DC Comics', 'Oliver Queen', 'More Fun Comics #73', 'Oliver Queen'),
-               ('Wonder Woman', 'DC Comics', 'Princess Diana','All Star Comics #8', 'Princess Diana'),
-               ('Martian Manhunter', 'DC Comics', 'J onn J onzz','Detective Comics #225','Martian Manhunter'),
-               ('Robin/Nightwing', 'DC Comics', 'Dick Grayson', 'Detective Comics #38', 'Dick Grayson'),
-               ('Blue Beetle', 'DC Comics', 'Dan Garret', 'Mystery Men Comics #1', 'Dan Garret, Ted Kord, Jaime Reyes'),
-               ('Black Canary', 'DC Comics', 'Dinah Drake', 'Flash Comics #86', 'Dinah Drake, Dinah Lance'),
-               ('Spider Man', 'Marvel Comics', 'Peter Parker', 'Amazing Fantasy #15', 'Peter Parker'),
-               ('Captain America', 'Marvel Comics', 'Steve Rogers', 'Captain America Comics #1', 'Steve Rogers'),
-               ('Iron Man', 'Marvel Comics', 'Tony Stark', 'Tales of Suspense #39', 'Tony Stark'),
-               ('Thor', 'Marvel Comics', 'Thor Odinson', 'Journey into Myster #83', 'Thor Odinson'),
-               ('Hulk', 'Marvel Comics', 'Bruce Banner', 'The Incredible Hulk #1', 'Bruce Banner'),
-               ('Wolverine', 'Marvel Comics', 'James Howlett', 'The Incredible Hulk #180', 'James Howlett'),
-               ('Daredevil', 'Marvel Comics', 'Matthew Michael Murdock', 'Daredevil #1', 'Matthew Michael Murdock'),
-               ('Hawkeye', 'Marvel Comics', 'Clinton Francis Barton', 'Tales of Suspense #57', 'Clinton Francis Barton'),
-               ('Cyclops', 'Marvel Comics', 'Scott Summers', 'X-Men #1', 'Scott Summers'),
-               ('Silver Surfer', 'Marvel Comics', 'Norrin Radd', 'The Fantastic Four #48', 'Norrin Radd');
+     `insert into characters (superhero, publisher, alter_ego, first_appearance, character, url)
+        values ('Batman', 'DC Comics' , 'Bruce Wayne', 'Detective Comics #27', 'Bruce Wayne', 'https://static.dc.com/dc/files/default_images/Char_Thumb_Batman_20190116_5c3fc4b40fae42.85141247.jpg?w=160'),
+               ('Superman', 'DC Comics', 'Kal-El', 'Action Comics #1', 'Kal-El', 'https://static.dc.com/2023-02/Char_WhosWho_Superman_20190116_5c3fc71f524f38.28405711.jpg?w=160'),
+               ('Flash', 'DC Comics', 'Jay Garrick', 'Flash Comics #1','Jay Garrick, Barry Allen, Wally West, Bart Allen', 'https://static.dc.com/2023-02/Char_WhosWho_Flash_20190116_5c3fcadbc6a963.74676553.jpg?w=160'),
+               ('Green Lantern', 'DC Comics', 'Alan Scott', 'All-American Comics #16', 'Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz', 'https://static.dc.com/2023-02/Char_WhosWho_GreenLantern20200721_5f173adcedb982.94529743.jpg?w=160'),
+               ('Green Arrow', 'DC Comics', 'Oliver Queen', 'More Fun Comics #73', 'Oliver Queen', 'https://static.dc.com/dc/files/default_images/Char_Thumb_GreenArrow_5c4915494b3fb9.17530021.jpg?w=160'),
+               ('Wonder Woman', 'DC Comics', 'Princess Diana','All Star Comics #8', 'Princess Diana', 'https://static.dc.com/2023-02/Char_WhosWho_WonderWoman_20190116_5c3fc6aa51d124.25659603.jpg?w=160'),
+               ('Martian Manhunter', 'DC Comics', 'J onn J onzz','Detective Comics #225','Martian Manhunter', 'https://static.dc.com/dc/files/default_images/Char_Thumb_MartianManhunter_20190116_5c3fd5c45bcd52.92066763.jpg?w=640'),
+               ('Robin/Nightwing', 'DC Comics', 'Dick Grayson', 'Detective Comics #38', 'Dick Grayson', 'https://static.dc.com/dc/files/default_images/Char_Thumb_Nightwing_2_5c50fa380942a3.78305981.jpg?w=384'),
+               ('Blue Beetle', 'DC Comics', 'Dan Garret', 'Mystery Men Comics #1', 'Dan Garret, Ted Kord, Jaime Reyes', 'https://static.dc.com/dc/files/default_images/Char_Thumb_BlueBeetle_5c4118a71474e2.43949452.jpg?w=160'),
+               ('Black Canary', 'DC Comics', 'Dinah Drake', 'Flash Comics #86', 'Dinah Drake, Dinah Lance', 'https://static.dc.com/dc/files/default_images/Char_Thumb_BlackCanary_5c41184e20ee69.98463239.jpg?w=160'),
+               ('Spider Man', 'Marvel Comics', 'Peter Parker', 'Amazing Fantasy #15', 'Peter Parker', 'https://cdn.marvel.com/content/1x/037smm_com_crd_01.jpg'),
+               ('Captain America', 'Marvel Comics', 'Steve Rogers', 'Captain America Comics #1', 'Steve Rogers', 'https://cdn.marvel.com/content/1x/ultimate_cap_hed.jpg'),
+               ('Iron Man', 'Marvel Comics', 'Tony Stark', 'Tales of Suspense #39', 'Tony Stark', 'https://cdn.marvel.com/content/1x/002irm_ons_crd_03.jpg'),
+               ('Thor', 'Marvel Comics', 'Thor Odinson', 'Journey into Myster #83', 'Thor Odinson', 'https://cdn.marvel.com/content/1x/thorult01.jpg'),
+               ('Hulk', 'Marvel Comics', 'Bruce Banner', 'The Incredible Hulk #1', 'Bruce Banner', 'https://cdn.marvel.com/content/1x/349red_com_crd_01.png'),
+               ('Wolverine', 'Marvel Comics', 'James Howlett', 'The Incredible Hulk #180', 'James Howlett','https://cdn.marvel.com/content/1x/ultwolv.jpg'),
+               ('Daredevil', 'Marvel Comics', 'Matthew Michael Murdock', 'Daredevil #1', 'Matthew Michael Murdock', 'https://cdn.marvel.com/content/1x/daredevilult_head.jpg'),
+               ('Hawkeye', 'Marvel Comics', 'Clinton Francis Barton', 'Tales of Suspense #57', 'Clinton Francis Barton', 'https://cdn.marvel.com/content/1x/hawkeyeult_head.jpg'),
+               ('Cyclops', 'Marvel Comics', 'Scott Summers', 'X-Men #1', 'Scott Summers','https://cdn.marvel.com/content/1x/cyclopsaoa.jpg'),
+               ('Silver Surfer', 'Marvel Comics', 'Norrin Radd', 'The Fantastic Four #48', 'Norrin Radd', 'https://cdn.marvel.com/content/1x/21_ba97.jpg');
                ` ,()=>{
                 runQueries(newdb);
                });

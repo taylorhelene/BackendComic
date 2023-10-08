@@ -16,9 +16,19 @@ type Power{
     power: String
 }
 
+type HeroList{
+    superhero : String
+    publisher: String
+    alter_ego : String
+    first_appearance: String
+    character: String
+    url: String
+}
+
 type Query{
     heroes: [Hero]
     hero(id:ID!): Hero
+    superheroeslist: [HeroList]
 
 }
 
