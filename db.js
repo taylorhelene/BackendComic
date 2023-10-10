@@ -110,6 +110,52 @@ function sixthQuery(newdb){
                });
 }
 
+function seventhQuery(newdb){
+    newdb.exec(`
+    create table comics (
+        name text not null,
+        date text not null,
+        rating text not null,
+        writer text not null,
+        cover_artist text not null,
+        editor text not null,
+        digital text not null,
+        link text null,
+        price text not null,
+        url text not null);
+    `,()=>{
+        eighthQuery(newdb);
+    })
+}
+
+function eighthQuery(newdb){
+    newdb.exec(
+        `insert into comics (name, date , rating, writer, cover_artist, editor, digital, link, price, url)
+           values ('I Am Groot Infinity Comic #6', '2023-10-13' , 'All Ages', 'Chiya', 'Chiya', 'Darren Shan' ,'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/00/64f9e0e83cfb6/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #12', '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free','https://cdn.marvel.com/u/prod/marvel/i/mg/2/f0/65020e61f319b/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #11', '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/c0/65020e53a8026/portrait_uncanny.jpg' ),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #10', '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/d0/65020e450337d/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #9',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/20/65020e2c327e9/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #8',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/8/d0/65020e191feac/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #7',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/f/30/65020e07032a3/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #6',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/70/65020deb7783e/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #5',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/2/a0/65020ea47a631/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #4',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/5/d0/65020daee5731/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #3',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/03/65020d966e845/portrait_uncanny.jpg'),
+                  ('Amazing Spider-Man: Hunted Infinity Comic #2',  '2023-10-13' , ' Rated T+', 'Jeff Youngquist', 'Jeff Youngquist', 'Jeff Youngquist' , 'Digital issue is not currently available', '', 'free', 'https://cdn.marvel.com/u/prod/marvel/i/mg/2/50/65020d840b1a3/portrait_uncanny.jpg'),
+                  ('G.O.D.S. First Look Infinity Comic #1',  '2023-10-4',' Rated T+', 'Tim Smith' , 'Tim Smith', 'Tim Smith', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64482' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/d/50/651b158643236/portrait_uncanny.jpg'),
+                  ('Loki: Agent of Asgard Infinity Comic #1', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64190' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/a0/65031795bf64c/portrait_uncanny.jpg'),
+                  ('Loki: Agent of Asgard Infinity Comic #2', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64282' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/90/65031795b7f0e/portrait_uncanny.jpg'),
+                  ('Loki: Agent of Asgard Infinity Comic #3', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'Digital issue is not currently available' , '' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/4/10/65031795bd9d9/portrait_uncanny.jpg'), 
+                  ('Loki: Agent of Asgard Infinity Comic #4', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64284' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/6/10/65031795bbd2b/portrait_uncanny.jpg'),
+                  ('Loki: Agent of Asgard Infinity Comic #5', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64285' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/40/65031795b1c4e/portrait_uncanny.jpg'),
+                  ('Loki: Agent of Asgard Infinity Comic #6', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64286' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/3/80/650317af80c69/portrait_uncanny.jpg),
+                  ('Loki: Agent of Asgard Infinity Comic #7', '2023-10-3' ,' Rated T+', 'Al Ewing' , 'Lee Garbett', 'Jeff Youngquist', 'DIGITAL ISSUE : Read online or on your iPhone, iPad or Android Device' , 'https://read.marvel.com/#/book/64287' , 'free' , 'https://cdn.marvel.com/u/prod/marvel/i/mg/b/b0/650317afae0eb/portrait_uncanny.jpg');
+                  ` ,()=>{
+                   runQueries(newdb);
+                  });
+}
+
 
 function runQueries(db) {
 
