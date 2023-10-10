@@ -67,7 +67,30 @@ const resolvers = {
                   rows.forEach((row)=>{
                       myans.push(row);
                   });
-                console.log(myans)
+                
+                 resolve(myans);
+              })
+                
+                })
+              }
+
+             
+              return records= getRecords();
+        },
+        comics :()=>{
+            var myans=[];
+            var records=[];
+           
+            function getRecords(){
+                return new Promise((resolve,reject)=>{
+                db.prepare("SELECT * FROM comics ").all((err,rows)=>{
+                  if(err){
+                      return console.error(err.message);
+                  }
+                  rows.forEach((row)=>{
+                      myans.push(row);
+                  });
+                
                  resolve(myans);
               })
                 

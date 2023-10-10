@@ -25,10 +25,24 @@ type HeroList{
     url: String
 }
 
+type Comics{
+    name : String
+    date : String
+    rating  : String
+    writer  : String
+    cover_artist  : String
+    editor  : String
+    digital  : String
+    link : String
+    price  : String
+    url : String
+}
+
 type Query{
     heroes: [Hero]
     hero(id:ID!): Hero
     superheroeslist: [HeroList]
+    comics:[Comics]
 
 }
 
