@@ -38,11 +38,30 @@ type Comics{
     url : String
 }
 
+enum Sort{
+    ASC
+    DESC
+}
+
+type Games{
+    name : String 
+    date : String 
+    developer : String 
+    publisher : String 
+    available_on : String
+    overview : String
+    src : String 
+    extras : String 
+    video : String
+}
+
 type Query{
     heroes: [Hero]
     hero(id:ID!): Hero
     superheroeslist: [HeroList]
     comics:[Comics]
+    games:[Games]
+    featuredGame ( action :Sort, limit: ID) : [Games]
 
 }
 

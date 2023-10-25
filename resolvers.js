@@ -99,7 +99,54 @@ const resolvers = {
 
              
               return records= getRecords();
+        },
+        games:()=>{
+            var myans=[];
+            var records=[];
+           
+            function getRecords(){
+                return new Promise((resolve,reject)=>{
+                db.prepare("SELECT * FROM games ").all((err,rows)=>{
+                  if(err){
+                      return console.error(err.message);
+                  }
+                  rows.forEach((row)=>{
+                      myans.push(row);
+                  });
+                
+                 resolve(myans);
+              })
+                
+                })
+              }
+
+             
+              return records= getRecords();
+        },
+        featuredGame:(_,{action,limit})=>{
+            var myans=[];
+            var records=[];
+           
+            function getRecords(){
+                return new Promise((resolve,reject)=>{
+                db.prepare(`SELECT * FROM games order by name +? LIMIT ? `).all([action,limit],(err,rows)=>{
+                  if(err){
+                      return console.error(err.message);
+                  }
+                  rows.forEach((row)=>{
+                      myans.push(row);
+                  });
+                
+                 resolve(myans);
+              })
+                
+                })
+              }
+
+             
+              return records= getRecords();
         }
+
     },
 
     Mutation : {
