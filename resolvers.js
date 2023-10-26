@@ -35,7 +35,7 @@ const resolvers = {
             var record={}
             function getHero(){
                 return new Promise((resolve,reject)=>{
-                    db.prepare("SELECT distinct h.hero_id id ,hero_name name,is_xman xman,was_snapped snapped , hero_power power, image image  FROM hero h join hero_power hp on h.hero_id = hp.hero_id WHERE h.hero_id  = ?").get(id,(err,rows)=>{
+                    db.prepare("SELECT distinct h.hero_id id ,hero_name name,is_xman xman,was_snapped snapped , hero_power power, image image, views views  FROM hero h join hero_power hp on h.hero_id = hp.hero_id WHERE h.hero_id  = ?").get(id,(err,rows)=>{
                         if(err){
                             return console.error(err.message);
                         }
@@ -151,13 +151,13 @@ const resolvers = {
 
     Mutation : {
 
-        hero:(_,{views,id})=>{
+        hero:(_,{id})=>{
             var myans= {}
             var record={}
 
             function changeHero(){
                 return new Promise((resolve,reject)=>{
-                    db.prepare("UPDATE hero SET views= ? WHERE hero_id= ? ").run([views,id],(err,rows)=>{
+                    db.prepare("UPDATE hero SET views = views + 1 WHERE hero_id= ? ").run([id],(err,rows)=>{
                         if(err){
                             return console.error(err.message);
                         }

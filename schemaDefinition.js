@@ -66,7 +66,7 @@ type Query{
 }
 
 type Mutation{
-    hero(views:Int! , id:ID!): Hero
+    hero( id:ID!): Hero
 }
 
 `
