@@ -1,5 +1,5 @@
 var sqlite3 = require('sqlite3');
-const { gql } = require('apollo-server');
+const { gql } = require('graphql-tag');
 
 let db= new sqlite3.Database('./dl.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err && err.code == "SQLITE_CANTOPEN") {

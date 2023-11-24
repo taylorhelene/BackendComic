@@ -1,6 +1,6 @@
 
 const db = require('better-sqlite3')('chinook.db', { readonly: true, fileMustExist: true});
-const { gql } = require('apollo-server');
+const { gql } = require('graphql-tag');
 
 
 const typeDefs = gql`
