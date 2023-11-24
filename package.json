@@ -12,6 +12,7 @@
   "dependencies": {
     "apollo-server": "^3.12.0",
     "better-sqlite3": "^8.5.0",
+    "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "sqlite3": "^5.1.6"
   }
