@@ -129,7 +129,7 @@ const resolvers = {
            
             function getRecords(){
                 return new Promise((resolve,reject)=>{
-                db.prepare(`SELECT * FROM games order by name +? LIMIT ? `).all([action,limit],(err,rows)=>{
+                db.prepare(`SELECT * FROM games order by name ${action} LIMIT ${limit} `).all((err,rows)=>{
                   if(err){
                       return console.error(err.message);
                   }
